@@ -112,6 +112,14 @@ Order Count Above 50 =
 
 ---
 
+## ⚡ Interactive Features
+
+- **Custom Tooltips** — Designed and integrated customized tooltip pages to display detailed, context-specific metrics when users hover over data points.
+- **Drill-Through Capabilities** — Enabled page-level drill-through filters, allowing users to right-click visual elements to jump to deep-dive reports filtered automatically by their selection.
+- **Data Hierarchies** — Configured navigation hierarchies (e.g., Date and Product categories) to allow users to drill down from high-level summaries into granular details.
+
+---
+
 ## 🛠️ Tools & Skills Used
 
 - **Power BI Desktop** — Report authoring
@@ -119,6 +127,7 @@ Order Count Above 50 =
 - **Power Query (M)** — Data transformation and cleaning
 - **Star Schema Modeling** — Fact + dimension table relationships
 - **Data Visualization** — KPI cards, line charts, bar charts, matrix tables
+- **Interactive Features** — Tooltips, drill-through pathways, and hierarchies for detailed analysis
 
 ---
 
@@ -150,6 +159,7 @@ Order Count Above 50 =
 - Designing a clean **star schema** data model in Power BI
 - Writing intermediate to advanced **DAX measures** (CALCULATE, DIVIDE, DISTINCTCOUNT, ALL)
 - Building a multi-page report with **consistent theming and layout**
+- Implementing advanced user features like **tooltips, drill-throughs, and hierarchies** for enhanced dashboard navigation
 - Using **filter context** to create dynamic KPIs that respond to slicers
 - Communicating business insights visually — not just displaying numbers
 
