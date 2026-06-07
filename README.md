@@ -1,6 +1,6 @@
 # 📊 Sales Dashboard — Power BI
 
-![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)<br>
 A multi-page interactive sales analytics dashboard built with Power BI Desktop using the **AdventureWorks** dataset. Covers end-to-end analysis — from data modeling to DAX measures to visual storytelling.
 
 ---
@@ -18,6 +18,10 @@ A multi-page interactive sales analytics dashboard built with Power BI Desktop u
 ### Data Model View
 
 ![Data Model](images/modle_view.png)
+
+### Custom Tooltip View
+
+![Custom Tooltip](images/tooltips.png)
 
 ---
 
@@ -136,7 +140,8 @@ Order Count Above 50 =
  ┣ 📁 images/
  ┃ ┣ 🖼️ Sales_page-0001.jpg      # Overview page screenshot
  ┃ ┣ 🖼️ Sales_page-0002.jpg      # DAX Demos page screenshot
- ┃ ┗ 🖼️ modle_view.png           # Data model screenshot
+ ┃ ┣ 🖼️ modle_view.png           # Data model screenshot
+ ┃ ┗ 🖼️ tooltips.png             # Custom tooltips screenshot
  ┗ 📄 README.md
 ```
 
