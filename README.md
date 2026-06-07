@@ -23,6 +23,10 @@ A multi-page interactive sales analytics dashboard built with Power BI Desktop u
 
 ![Custom Tooltip](images/tooltips.png)
 
+### Product Info View
+
+![Product Info](images/product_info.png)
+
 ---
 
 ## 🗂️ Data Model
@@ -141,6 +145,7 @@ Order Count Above 50 =
  ┃ ┣ 🖼️ Sales_page-0001.jpg      # Overview page screenshot
  ┃ ┣ 🖼️ Sales_page-0002.jpg      # DAX Demos page screenshot
  ┃ ┣ 🖼️ modle_view.png           # Data model screenshot
+ ┃ ┣ 🖼️ product_info.png         # Product info screenshot
  ┃ ┗ 🖼️ tooltips.png             # Custom tooltips screenshot
  ┗ 📄 README.md
 ```
