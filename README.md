@@ -199,7 +199,7 @@ RETURN
 ## 👤 Author
 
 **Yash Awasthi**  
-BCA (AI & Data Science) | SAGE University, Bhopal  
+BCA (AI & Data Science)  
 📧 yashonwork247@gmail.com  
 🔗 [LinkedIn](https://linkedin.com/in/yashawasthi27) | [GitHub](https://github.com/yashawasthi27) | [Portfolio](https://yashawasthi27.github.io/Portfolio/)
 
