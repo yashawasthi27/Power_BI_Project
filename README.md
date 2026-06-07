@@ -29,6 +29,19 @@ A multi-page interactive sales analytics dashboard built with Power BI Desktop u
 
 ---
 
+## 🎯 Key Insights & Business Questions Answered
+
+This dashboard translates sales transaction data into actionable business intelligence by addressing key operational questions:
+
+* **How is sales performance trending year-over-year?**
+  * *Insight:* Sales scaled exponentially from **$2.13M** in 2020 to **$9.72M** in 2022, signaling rapid growth in order volumes (from 865 to 32k line items).
+* **Which geographic region drives the highest revenue?**
+  * *Insight:* **North America** dominates global sales, generating **$9.0M** of the total revenue.
+* **Where are our highest margin categories?**
+  * *Insight:* While bikes drive volume, the **Accessories** category carries the highest margin percentage (**~60%**), presenting a strong opportunity for cross-selling and promotion.
+
+---
+
 ## 🗂️ Data Model
 
 The report uses a **star schema** with one fact table and four dimension tables:
@@ -41,7 +54,13 @@ The report uses a **star schema** with one fact table and four dimension tables:
 | `Order Date`      | Dimension | Order Date, Month, Year, Hierarchy                                      |
 | `Sales Territory` | Dimension | Sales Territory Key, Country, Continent                                 |
 
-> Relationships follow a standard one-to-many pattern from dimension tables to the `Sales` fact table.
+> Relationships follow a standard one-to-many pattern from dimension tables to the `Sales` fact table. All relationship-defining surrogate keys (e.g. `Customer Key`, `Product Key`) have been hidden from the report field selection view to ensure clean self-serve reporting and avoid incorrect aggregations.
+
+### 🧹 Data Prep & ETL (Power Query)
+Before modeling, the raw **AdventureWorks** dataset underwent clean-up in Power Query:
+* **Type Safety:** Verified date columns are structured as `Date` format and cash values as `Fixed Decimal Number` (Currency).
+* **Text Cleansing:** Combined first and last names in the customer dimension to form unified `Full Name` attributes.
+* **Dimensionality:** Built hierarchical date parameters (Year, Month, Date) to enable smooth timeline drill-downs.
 
 ---
 
@@ -91,28 +110,33 @@ Tabular breakdown demonstrating advanced DAX measures across years.
 ## 🧮 Key DAX Measures
 
 ```dax
--- Total Sales
+-- Total Sales: Calculates the overall sum of sales line totals
 Total Sales = SUM(Sales[Line Total Sales])
 
--- Total Margin %
-Total Margin % = DIVIDE(SUM(Sales[Line Margin]), SUM(Sales[Line Total Sales]))
+-- Total Margin %: Computes profit margin ratio safely avoiding divide-by-zero errors
+Total Margin % = 
+DIVIDE(
+    SUM(Sales[Line Margin]), 
+    SUM(Sales[Line Total Sales]),
+    0
+)
 
--- Count of Distinct Orders
+-- Count of Distinct Orders: Counts unique sales transaction orders
 Count of Sales Orders = DISTINCTCOUNT(Sales[Sales Order Line Number])
 
--- Orders above quantity threshold
+-- Orders above quantity threshold: Calculates number of rows where order quantity exceeds 50
 Order Count Above 50 =
-    CALCULATE(
-        COUNTROWS(Sales),
-        Sales[Order Quantity] > 50
-    )
+CALCULATE(
+    COUNTROWS(Sales),
+    Sales[Order Quantity] > 50
+)
 
--- % Share of Line Orders
-% of line order =
-    DIVIDE(
-        [Count of Sales By line Items],
-        CALCULATE([Count of Sales By line Items], ALL(Sales))
-    )
+-- % Share of Line Orders: Displays proportion of items using variables for efficiency
+% of Line Order = 
+VAR CurrentItems = [Count of Sales By line Items]
+VAR TotalItems = CALCULATE([Count of Sales By line Items], ALL(Sales))
+RETURN
+    DIVIDE(CurrentItems, TotalItems, 0)
 ```
 
 ---
